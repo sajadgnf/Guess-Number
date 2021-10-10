@@ -2,11 +2,12 @@ const guessNumberForm = document.querySelector(".guessNumber")
 const resultContainer = document.querySelector(".result")
 const userGuessField = document.querySelector(".form-control")
 let counter = 1
-const randomNumber = Math.floor((Math.random() * 100) + 1)
+let randomNumber = Math.floor((Math.random() * 100) + 1)
 let gesses = []
 
 // Restart Button
 const endGame = () => {
+    randomNumber = Math.floor((Math.random() * 100) + 1)
     userGuessField.disabled = false
     guessNumberForm.submit.disabled = false
     resultContainer.innerHTML = ""
@@ -81,7 +82,7 @@ const guessNumber = (event, hint) => {
         } else if (number < randomNumber) {
             hint = "Your Guess Is Lower Than The Answer"
         }
-        
+
         lose(hint)
     }
 
